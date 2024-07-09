@@ -1,7 +1,9 @@
-# @electron/asar - Electron Archive
+# @zunh/asar - Electron Archive
+
+> fork of [electron/asar](https://github.com/electron/asar)
 
 [![CircleCI build status](https://circleci.com/gh/electron/asar/tree/main.svg?style=shield)](https://circleci.com/gh/electron/asar/tree/main)
-[![npm version](http://img.shields.io/npm/v/@electron/asar.svg)](https://npmjs.org/package/@electron/asar)
+[![npm version](http://img.shields.io/npm/v/@zunh/asar.svg)](https://npmjs.org/package/@zunh/asar)
 
 Asar is a simple extensive archive format, it works like `tar` that concatenates
 all files together without compression, while having random access support.
@@ -19,7 +21,7 @@ all files together without compression, while having random access support.
 This module requires Node 10 or later.
 
 ```bash
-$ npm install --engine-strict @electron/asar
+$ npm install --engine-strict @zunh/asar
 ```
 
 ### Usage
@@ -42,6 +44,8 @@ $ asar --help
 
     extract|e <archive> <dest>
        extract archive
+
+    extract-header|eh <archive> <filename>
 
 
   Options:
@@ -86,7 +90,7 @@ $ asar pack app app.asar --unpack-dir "{**/x1,**/x2,z4/w1}"
 ### Example
 
 ```javascript
-const asar = require('@electron/asar');
+const asar = require('@zunh/asar');
 
 const src = 'some/path/';
 const dest = 'name.asar';
@@ -103,7 +107,7 @@ nothing, or a `stream.Transform`. The latter will be used on files that will be
 in the `.asar` file to transform them (e.g. compress).
 
 ```javascript
-const asar = require('@electron/asar');
+const asar = require('@zunh/asar');
 
 const src = 'some/path/';
 const dest = 'name.asar';
