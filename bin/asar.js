@@ -66,9 +66,10 @@ program.command('extract-file <archive> <filename>')
 
 program.command('extract <archive> <dest>')
   .alias('e')
+  .option('-s, --skip <fileSize>', 'File size to be skipped')
   .description('extract archive')
-  .action(function (archive, dest) {
-    asar.extractAll(archive, dest)
+  .action(function (archive, dest, { skip }) {
+    asar.extractAll(archive, dest, Number(skip))
   })
 
 program.command('extract-header <archive> <filename>')
