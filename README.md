@@ -27,9 +27,9 @@ $ npm install --engine-strict @zunh/asar
 ### Usage
 
 ```bash
-$ asar --help
+$ super-asar --help
 
-  Usage: asar [options] [command]
+  Usage: super-asar [options] [command]
 
   Commands:
 
@@ -72,17 +72,17 @@ Given:
 
 Exclude: a, b
 ```bash
-$ asar pack app app.asar --unpack-dir "{x1,x2}"
+$ super-asar pack app app.asar --unpack-dir "{x1,x2}"
 ```
 
 Exclude: a, b, d, f
 ```bash
-$ asar pack app app.asar --unpack-dir "**/{x1,x2}"
+$ super-asar pack app app.asar --unpack-dir "**/{x1,x2}"
 ```
 
 Exclude: a, b, d, f, h
 ```bash
-$ asar pack app app.asar --unpack-dir "{**/x1,**/x2,z4/w1}"
+$ super-asar pack app app.asar --unpack-dir "{**/x1,**/x2,z4/w1}"
 ```
 
 ## Using programmatically
