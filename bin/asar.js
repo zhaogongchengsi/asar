@@ -13,6 +13,7 @@ if (actualNodeVersion[0] < requiredNodeVersion[0] || (actualNodeVersion[0] === r
 
 // Not consts so that this file can load in Node < 4.0
 var asar = require('../lib/asar')
+var disk = require('../lib/disk')
 var program = require('commander')
 
 program.version('v' + packageJSON.version)
@@ -68,6 +69,17 @@ program.command('extract <archive> <dest>')
   .description('extract archive')
   .action(function (archive, dest) {
     asar.extractAll(archive, dest)
+  })
+
+program.command('extract-header <archive> <filename>')
+  .alias('eh')
+  .description('extract one file from archive')
+  .action(function (archive, filename) {
+    const header = disk.readArchiveHeaderSync(archive).header
+    require('fs').writeFileSync(
+      require('path').basename(filename) + '.json',
+      JSON.stringify(header, null, 2)
+    )
   })
 
 program.command('*')
